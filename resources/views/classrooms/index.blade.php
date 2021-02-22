@@ -7,25 +7,28 @@ Classrooms
 @section('content')
 
     <h1>All Classrooms</h1>
-    
-    <table class="table">
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>number</th>
-                <th>created_at</th>
-                <th>updated_at</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($classrooms as $classroom)
+    @if( $classrooms->count() != 0 )
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>{{ $classroom->id }}</td>
-                    <td>{{ $classroom->number }}</td>
-                    <td>{{ $classroom->created_at }}</td>
-                    <td>{{ $classroom->updated_at }}</td>
+                    <th>id</th>
+                    <th>number</th>
+                    <th>created_at</th>
+                    <th>updated_at</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach($classrooms as $classroom)
+                    <tr>
+                        <td>{{ $classroom->id }}</td>
+                        <td>{{ $classroom->number }}</td>
+                        <td>{{ $classroom->created_at }}</td>
+                        <td>{{ $classroom->updated_at }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    @else
+        <h2>There are no classrooms</h2>
+    @endif
 @endsection
